@@ -5,6 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        # Time Complexity O(n*log(n)), better than brute force
         # assume nums is sorted and independet
         t = target / 2.0
         nums_copy = nums.copy()  # deep copy
