@@ -5,7 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        # assume nums is sorted
+        # assume nums is sorted and independet
         t = target / 2.0
         nums_copy = nums.copy()  # deep copy
         # made centered by target
@@ -13,9 +13,6 @@ class Solution(object):
         nums_copy.reverse()
         nums = [x - t for x in nums]
         nums_merged = self.merge(nums_copy, nums)
-        print(nums_copy)
-        print(nums)
-        print(nums_merged)
         # check if two consecutive same numbers
         r = None
         for i in range((len(nums_merged)) - 1):
@@ -23,10 +20,10 @@ class Solution(object):
             if nums_merged[i] == nums_merged[j]:
                 r = nums_merged[i]
                 break
-        # bring 4.5 back
+        print(nums_merged)
+        # bring t back
         if r != None:
-            nums_copy.reverse()
-            return [nums.index(r), nums_copy.index(r)]
+            return [nums.index(r), len(nums_copy) - 1 - nums_copy.index(r)]
         else:  # no result
             return None
         
