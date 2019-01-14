@@ -1,0 +1,18 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        ## Note: use Dynamic Programming for subsequence
+        
+        # Sliding Window, the start and end of the window must be the repeated chars
+        helper = {}  # char : index + 1 (idx of next char)
+        res = 0
+        i = 0
+        for j in range(len(s)):
+            if s[j] in helper and i < helper[s[j]]:  # dict contains s[j], i cannot decrease since "substring"
+                i = helper[s[j]]  # jump directly to next char
+            res = max(res, j - i + 1)
+            helper[s[j]] = j + 1
+        return res
