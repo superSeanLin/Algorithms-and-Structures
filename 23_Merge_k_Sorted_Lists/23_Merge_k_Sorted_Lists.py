@@ -5,7 +5,7 @@
 #         self.next = None
 
 class Solution:
-    ## Need better solution
+    ## Use heap to do better job
     def mergeKLists(self, lists):
         """
         :type lists: List[ListNode]
