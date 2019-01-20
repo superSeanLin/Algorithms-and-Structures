@@ -5,46 +5,31 @@ class Solution:
         :type words: List[str]
         :rtype: List[int]
         """
-        ## Working solution with KMP but need high demand of memory and time
+        # All words are the same length
         res = []
-        if len(words) == 0:
+        if not words:  # no valid words
             return res
-        substrings = self.concateWords(words)
-        #print(substrings)
-        for sub in substrings:
-            pi = self.createPI(sub)
-            idx = -1
-            for i in range(len(s)):
-                while idx > -1 and s[i] != sub[idx+1]:
-                    idx = pi[idx]
-                if s[i] == sub[idx+1]:
-                    idx += 1
-                if idx == len(sub)-1:
-                    res.append(i - len(sub) + 1)
-                    idx = pi[idx]  # look for next
-        return res     
-        
-    def createPI(self, words):
-        pi = [-1]
-        idx = -1
-        for i in range(1, len(words)):
-            while idx > -1 and words[idx+1] != words[i]:
-                idx = pi[idx]
-            if words[idx+1] == words[i]:
-                idx += 1
-            pi.append(idx)
-        return pi
-    
-    def concateWords(self, words):
-        if len(words) == 1:
-            return words
-        res = set()
-        for i in range(len(words)):
-            temp = words.copy()
-            temp.remove(words[i])
-            res_next = self.concateWords(temp)
-            for s in res_next:
-                res.add(s + words[i])
+        length_text = len(s)
+        num = len(words)
+        length_word = len(words[0])
+        counter = {}
+        for w in words:
+            if not w in counter:
+                counter[w] = 1
+            else:  # old words
+                counter[w] += 1
+        for i in range(length_text - num*length_word + 1):  # valid length
+            temp = counter.copy()
+            n = num
+            for j in range(num):
+                w = s[i + j*length_word : i + (j+1)*length_word]
+                if w in temp:  # valid words
+                    temp[w] -= 1
+                    if temp[w] < 0:
+                        n < 0
+                        break
+                    n -= 1
+            if n == 0:
+                res.append(i)
         return res
-            
-    
+                
