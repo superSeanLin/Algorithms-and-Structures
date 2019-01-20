@@ -1,4 +1,5 @@
 class Solution:
+    ## may use Euclidean algorithm(辗转相除) to calculate greatest common divisor
     def divide(self, dividend, divisor):
         """
         :type dividend: int
