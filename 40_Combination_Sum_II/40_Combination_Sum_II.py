@@ -1,5 +1,7 @@
 class Solution:
-    ans = []
+    def __init__(self):  # if not define constructor, ans will be used as a static variable
+        self.ans = []
+    
     def combinationSum2(self, candidates, target):
         """
         :type candidates: List[int]
