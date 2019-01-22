@@ -1,4 +1,5 @@
 class Solution:
+    ## use DFS to get faster(?); remove duplication is the problem
     def combinationSum(self, candidates, target):
         """
         :type candidates: List[int]
