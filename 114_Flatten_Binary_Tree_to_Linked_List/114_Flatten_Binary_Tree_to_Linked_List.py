@@ -6,6 +6,7 @@
 #         self.right = None
 
 class Solution:
+    ## remember to use helper function if it wants in-place modification
     def flatten(self, root):
         """
         :type root: TreeNode
