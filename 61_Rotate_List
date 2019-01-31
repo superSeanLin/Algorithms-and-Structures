@@ -1,0 +1,40 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution:
+    def rotateRight(self, head, k):
+        """
+        :type head: ListNode
+        :type k: int
+        :rtype: ListNode
+        """
+        # first find the length of the linked list
+        n = 0
+        p = head
+        while p:
+            n += 1
+            p = p.next
+        if n == 0:
+            return head
+        # then find where to slice
+        k = k % n
+        p, q = head, head
+        count = n - k
+        while p and count > 0:
+            q = p  # keep previous pointer
+            p = p.next
+            count -= 1
+        # concatnate again
+        q.next = None
+        if not p:
+            return head
+        r = p  # when k = n, r = p = None
+        while r.next:
+            r = r.next
+        r.next = head
+        return p
+        
+        
