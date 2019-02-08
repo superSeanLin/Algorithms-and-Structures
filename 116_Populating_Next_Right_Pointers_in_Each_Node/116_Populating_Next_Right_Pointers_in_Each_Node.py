@@ -10,7 +10,8 @@ class Solution:
     # @param root, a tree link node
     # @return nothing
     
-    ## level order traverse
+    ## level order traverse with two stack
+    ## if recursive methond, return last pointer in the subtree
     def connect(self, root):
         if not root:
             return
