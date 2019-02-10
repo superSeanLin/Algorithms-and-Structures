@@ -13,19 +13,15 @@ class Solution:
             return 0
         if not root.left and not root.right:
             return root.val
-        left, right, L, R = self.dfs(root)
-        return max(left, right, left+right-root.val, L, R)
+        _, path = self.dfs(root)
+        return path
     
     def dfs(self, root):  # left/right may include root; L/R exclude root; all maximum path
-        if not root.left and not root.right:  # stop at leaves
-            return root.val, root.val, root.val, root.val
-        left, right, L, R = -2**31, -2**31, -2**31, -2**31
+        left, right, L, R = 0, 0, root.val, root.val
         if root.left:
-            ll, lr, lL, lR = self.dfs(root.left)
-            left = max(max(ll, lr), root.left.val)
-            L = max(lL, lR, ll+lr-root.left.val, left)
+            left, L = self.dfs(root.left)
+            left = max(left, 0)  # negative never accumulate
         if root.right:
-            rl, rr, rL, rR = self.dfs(root.right)
-            right = max(max(rl, rr), root.right.val)
-            R = max(rL, rR, rl+rr-root.right.val, right)
-        return max(left+root.val, root.val), max(right+root.val, root.val), L, R
+            right, R = self.dfs(root.right)
+            right = max(right, 0)
+        return max(left, right)+root.val, max(L, R, left+root.val+right)
