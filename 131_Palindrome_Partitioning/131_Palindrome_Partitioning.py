@@ -8,7 +8,7 @@ class Solution:
         for i in range(n):
             if s[:i+1] == s[:i+1][::-1]:  # palindrom
                 temp = [s[:i+1]]
-                remain = self.partition(s[i+1:])
+                remain = self.partition(s[i+1:])  # here we can use DP to save time and space
                 for r in remain:
                     res.append(temp + r)
         return res
