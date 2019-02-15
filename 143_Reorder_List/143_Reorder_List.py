@@ -6,6 +6,7 @@
 
 class Solution:
     ## Also can finish in three steps: 1. cut the list in two halves; 2. reverse the second half; 3. merge two parts
+    ## Also recursive method
     def reorderList(self, head: 'ListNode') -> 'None':
         """
         Do not return anything, modify head in-place instead.
