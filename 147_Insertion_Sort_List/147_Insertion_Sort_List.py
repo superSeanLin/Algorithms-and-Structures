@@ -5,6 +5,7 @@
 #         self.next = None
 
 class Solution:
+    ## also can change the value of the nodes
     def insertionSortList(self, head: 'ListNode') -> 'ListNode':
         if not head:
             return head
