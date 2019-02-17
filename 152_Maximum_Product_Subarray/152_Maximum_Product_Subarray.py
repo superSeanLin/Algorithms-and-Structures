@@ -4,7 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: int
         """
-        ## recurse
+        ## recurse; O(n) method, accumulate from left to right, and then right to left, meet 0 then reset
         if not nums:
             return 0
         if len(nums) == 1:
