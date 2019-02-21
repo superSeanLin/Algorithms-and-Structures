@@ -8,7 +8,8 @@ import queue
 
 class Solution:
     def rightSideView(self, root: 'TreeNode') -> 'List[int]':
-    ## use two queue?
+    ## use two queue? Can use one queue and keep length before enqueue
+    ## also BFS/DFS works
         res = []
         if not root:
             return res
