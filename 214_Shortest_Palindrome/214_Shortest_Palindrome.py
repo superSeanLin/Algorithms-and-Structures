@@ -1,6 +1,6 @@
 class Solution:
     def shortestPalindrome(self, s: str) -> str:
-        # start from the middle to find the anchor; only insert in front of it
+        ## reduce to find the longest palindrome first; only insert in front of it
         ## idea of using KMP to find the longest prefix of reverse is very brilliant!!!
         n = len(s)
         if n <= 1:
