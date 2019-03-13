@@ -11,7 +11,7 @@ class Solution:
             m = nums[i] // w  # quotient
             if m in d:  # same quotient, abs(diff) must <= w
                 return True
-            if m - 1 in d and abs(nums[i] - d[m - 1]) < w:
+            if m - 1 in d and abs(nums[i] - d[m - 1]) < w:    # adjacent bucket is also possible
                 return True
             if m + 1 in d and abs(nums[i] - d[m + 1]) < w:
                 return True
