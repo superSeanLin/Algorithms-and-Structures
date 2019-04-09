@@ -10,6 +10,7 @@ class Solution:
             for i in range(1, n+2-diff):
                 j = i + diff - 1
                 for k in range(i, j+1):
-                    # we need max before k, after k and coins finally bursting k 
+                    # we need max before k, after k and coins finally bursting k
+                    # k can be any from i to j; k before and after all burst, need i-1, j+1
                     coins[i][j] = max(coins[i][j], coins[i][k-1] + coins[k+1][j] + nums[i-1]*nums[k]*nums[j+1])
         return coins[1][n]
