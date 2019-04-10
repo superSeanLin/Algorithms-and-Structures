@@ -1,6 +1,7 @@
 class Solution:
     def countSmaller(self, nums: List[int]) -> List[int]:
-        # MergeSort-based solution is a standard way to solve problems related to inverse numbers
+        ## MergeSort-based solution is a standard way to solve problems related to inverse numbers
+        ## Note: elements of b come after elements of a; O(nlogn)
         if not nums:
             return []
         res, index = self.mergeSort(nums, list(range(len(nums))))
@@ -9,7 +10,7 @@ class Solution:
             ans[i] = res[count][1]
         return ans
     
-    def mergeSort(self, nums, index):
+    def mergeSort(self, nums, index):  # if space sufficient, we can do in-place; see #88
         n = len(nums)
         if n == 1:  # base case
             return [(nums[0], 0)], index
@@ -17,7 +18,7 @@ class Solution:
         b, indexB = self.mergeSort(nums[n//2:], index[n//2:])
         merged = 0  # indicates number of merged elements from b
         i, j = 0, 0
-        res = []  # try in-place later, idx++  # (element, number smaller after)
+        res = []  # (element, number smaller after)
         new_index = []
         while i < len(a) and j < len(b):
             if a[i][0] <= b[j][0]:  # use <= to avoid increasing merged when equal
