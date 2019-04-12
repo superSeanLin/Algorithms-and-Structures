@@ -22,7 +22,7 @@ class Solution:
         # n = len(prices)
         # if n <= 1:
         #     return 0
-        # prof = [0] * (n+2)  # indicates maxProf starting from i; also could use maxPorf buying at index i
+        # prof = [0] * (n+2)  # indicates maxProf starting from i
         # if prices[-2] < prices[-1]:
         #     prof[n-2] = (prices[-1] - prices[-2])
         # for i in range(n-3, -1, -1):
