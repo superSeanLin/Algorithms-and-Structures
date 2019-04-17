@@ -4,7 +4,7 @@ class Solution:
         
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:
         # build graph, use DFS with lexical order to find Eulerian path
-        # use DFS until end and backtracking
+        # use DFS until end and backtracking; backtracking let cycle merged
         if not tickets:
             return []
         #graph  = self.build(tickets)
@@ -35,8 +35,8 @@ class Solution:
         while stack:
             if stack[-1] in graph:
                 while graph[stack[-1]]:
-                    stack += graph[stack[-1]].pop(),
-            res += stack.pop(),
+                    stack += graph[stack[-1]].pop(),  # "," changes string to tuple
+            res += stack.pop(),  # res += "JFK" -> ["J","F","K"]; res += ("JFK",) -> ["JFK"]
         return res[::-1]
 
 
