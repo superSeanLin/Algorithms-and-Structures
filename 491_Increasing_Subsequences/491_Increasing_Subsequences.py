@@ -9,6 +9,7 @@ class Solution:
                 self.ans.append(temp[:])
             if start == len(nums):
                 return
+            # Actually if sorted, then could use nums[i] != nums[i]; see #40 for more details
             layerUsed = set()  # avoid use same element on the same layer; new layers will allocate new sets
             for i in range(start, len(nums)):
                 if (not temp or nums[i] >= temp[-1]) and (nums[i] not in layerUsed):
