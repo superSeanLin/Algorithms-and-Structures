@@ -4,7 +4,7 @@ class Solution:
         :type heights: List[int]
         :rtype: int
         """
-        ## BFS, same idea as path sum
+        ## BFS, same idea as path sum; O(nlogn)
         if not heights:
             return 0
         i, j = 0, len(heights)-1
