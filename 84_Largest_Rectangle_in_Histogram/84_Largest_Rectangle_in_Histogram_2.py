@@ -1,7 +1,7 @@
 class Solution:
     def largestRectangleArea(self, heights: List[int]) -> int:
         # use ascending stack; if we meet a lower height, then previous height is useless since the highest should be update;
-        # and using ascending stack guarantees all after > using height
+        # and using ascending stack guarantees all after > using height; O(n)
         stack = [-1]  # [index], trick here: set boundery, and so we can discard higher height
         heights.append(0)  # trick here: evaluate in the last stage
         maxi = 0
