@@ -12,7 +12,7 @@ class Solution:
                 stack.append(i)
             else:  # ')'
                 stack.pop()  # if stack[-1] == '(', pop and get right length; if stack[-1] == ')', pop it and get length 0
-                if len(stack) == 0:  # empty stack
+                if len(stack) == 0:  # empty stack; no '(' to be paired, and thus start from this index
                     stack.append(i)
                 else:
                     maximum = max(maximum, i - stack[-1])
