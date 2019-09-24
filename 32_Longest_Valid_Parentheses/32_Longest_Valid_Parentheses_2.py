@@ -11,7 +11,7 @@ class Solution:
                 right += 1
             if left == right:
                 maxi = max(maxi, left*2)
-            if right > left:  # not valid anymore
+            if right > left:  # not valid anymore; similar as first method, however we cannot calculate "((())" case, so need traverse from the other end
                 left, right = 0, 0
         left, right = 0, 0
         for i in range(n-1, -1, -1):
